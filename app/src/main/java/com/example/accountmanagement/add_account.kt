@@ -9,27 +9,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class register : AppCompatActivity() {
+class add_account : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_add_account)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val Backbtn: Button = findViewById(R.id.backtoreg)
-        Backbtn.setOnClickListener(){
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+        val submitbtn: Button = findViewById(R.id.submitbtn)
 
-        val reg: Button = findViewById(R.id.Regbtn)
-        reg.setOnClickListener(){
-            val intent = Intent(this, login::class.java)
+        submitbtn.setOnClickListener() {
+            val intent = Intent(this, Accounts::class.java)
             startActivity(intent)
         }
     }

@@ -1,5 +1,6 @@
 package com.example.accountmanagement
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -7,10 +8,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.accountmanagement.R.id.logbtn
 
 class MainActivity : AppCompatActivity() {
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,11 +24,15 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-
         val regbtn: Button = findViewById(R.id.regbtn)
-
         regbtn.setOnClickListener(){
             val intent = Intent(this, register::class.java)
+            startActivity(intent)
+        }
+
+        val logbtn: Button = findViewById(R.id.logbtn)
+        logbtn.setOnClickListener(){
+            val intent = Intent(this, login::class.java)
             startActivity(intent)
         }
     }

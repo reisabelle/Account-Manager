@@ -28,7 +28,7 @@
         app:titleTextColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/logbtn"
         android:layout_width="170dp"
         android:layout_height="110dp"
         android:layout_marginStart="162dp"
