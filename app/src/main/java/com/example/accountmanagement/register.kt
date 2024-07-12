@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,15 +22,15 @@ class register : AppCompatActivity() {
             insets
         }
 
-        val Backbtn: Button = findViewById(R.id.backtoreg)
-        Backbtn.setOnClickListener(){
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-
         val reg: Button = findViewById(R.id.Regbtn)
         reg.setOnClickListener(){
             val intent = Intent(this, login::class.java)
+            startActivity(intent)
+        }
+
+        val backbtn2: ImageView = findViewById(R.id.backbtn2)
+        backbtn2.setOnClickListener(){
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

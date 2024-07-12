@@ -8,7 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.accountmanagement.R.id.logbtn
+import com.example.accountmanagement.R.id.acc
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val logbtn: Button = findViewById(R.id.logbtn)
+        val logbtn: Button = findViewById(R.id.acc)
         logbtn.setOnClickListener(){
             val intent = Intent(this, login::class.java)
             startActivity(intent)

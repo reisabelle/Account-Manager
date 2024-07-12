@@ -3,6 +3,8 @@ package com.example.accountmanagement
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toolbar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -20,9 +22,14 @@ class login : AppCompatActivity() {
         }
 
         val loginbtn: Button = findViewById(R.id.login)
-
         loginbtn.setOnClickListener(){
             val intent = Intent(this, home::class.java)
+            startActivity(intent)
+        }
+
+        val backbtn1: ImageView = findViewById(R.id.backbtn1)
+        backbtn1.setOnClickListener() {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
