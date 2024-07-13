@@ -12,6 +12,15 @@
         android:theme="@style/Theme.AccountManagement"
         tools:targetApi="31">
         <activity
+            android:name=".registered"
+            android:exported="false" />
+        <activity
+            android:name=".ListToBeValidated"
+            android:exported="false" />
+        <activity
+            android:name=".accValidation"
+            android:exported="false" />
+        <activity
             android:name=".accInfo"
             android:exported="false" />
         <activity
