@@ -1,13 +1,13 @@
 package com.example.accountmanagement
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.widget.ImageView
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.chip.ChipGroup
 
 class panel : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,35 +19,21 @@ class panel : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val homebutton: ChipGroup = findViewById(R.id.homebutton)
-        homebutton.setOnClickListener() {
+        val button1: Button = findViewById(R.id.homebtn)
+        button1.setBackgroundColor(Color.TRANSPARENT)
+        button1.setOnClickListener{
             val intent = Intent(this, home::class.java)
             startActivity(intent)
         }
-        val imagebtn1: ImageView = findViewById(R.id.imagebutton1)
-        imagebtn1.setOnClickListener() {
-            val intent = Intent(this, home::class.java)
-            startActivity(intent)
-            }
-
-        val infobutton: ChipGroup = findViewById(R.id.infobutton)
-        infobutton.setOnClickListener() {
+        val button2: Button = findViewById(R.id.infobtn)
+        button2.setBackgroundColor(Color.TRANSPARENT)
+        button2.setOnClickListener{
             val intent = Intent(this, passConfirmation::class.java)
             startActivity(intent)
         }
-        val imagebtn2: ImageView = findViewById(R.id.imagebutton2)
-        imagebtn2.setOnClickListener() {
-            val intent = Intent(this, passConfirmation::class.java)
-            startActivity(intent)
-        }
-
-        val logoutbutton: ChipGroup = findViewById(R.id.logoutbutton)
-        logoutbutton.setOnClickListener() {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-        val imagebtn3: ImageView = findViewById(R.id.imagebutton3)
-        imagebtn3.setOnClickListener() {
+        val button3: Button = findViewById(R.id.logoutbtn)
+        button3.setBackgroundColor(Color.TRANSPARENT)
+        button3.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
