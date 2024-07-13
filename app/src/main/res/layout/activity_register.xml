@@ -19,7 +19,7 @@
         tools:layout_editor_absoluteX="1dp">
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginStart="101dp"
@@ -33,7 +33,7 @@
             app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginStart="101dp"
@@ -45,7 +45,7 @@
             android:selectAllOnFocus="true" />
 
         <EditText
-            android:id="@+id/editTextPhone"
+            android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginStart="101dp"
@@ -57,7 +57,7 @@
             android:selectAllOnFocus="true" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/password"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginStart="101dp"
