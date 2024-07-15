@@ -6,14 +6,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import androidx.activity.enableEdgeToEdge
 
 class register : AppCompatActivity() {
 
@@ -21,13 +21,10 @@ class register : AppCompatActivity() {
     private lateinit var database: DatabaseReference
 
     @SuppressLint("MissingInflatedId")
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_register)
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -35,11 +32,8 @@ class register : AppCompatActivity() {
             insets
         }
 
-
-
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().reference
-
 
         val reg: Button = findViewById(R.id.Regbtn)
         val phoneEditText: EditText = findViewById(R.id.phone)
@@ -58,17 +52,17 @@ class register : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            registerUser(email, password, username)
+            registerUser(email, password, username, phone)
         }
 
-
         val backbtn2: ImageView = findViewById(R.id.backbtn2)
-        backbtn2.setOnClickListener(){
+        backbtn2.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
-    private fun registerUser(email: String, password: String, username: String) {
+
+    private fun registerUser(email: String, password: String, username: String, phone: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -77,7 +71,8 @@ class register : AppCompatActivity() {
                         val userId = it.uid
                         val userMap = mapOf(
                             "username" to username,
-                            "email" to email
+                            "email" to email,
+                            "phone" to phone
                         )
 
                         database.child("users").child(userId).setValue(userMap)
@@ -86,15 +81,17 @@ class register : AppCompatActivity() {
                                     Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
                                     val intent = Intent(this, login::class.java)
                                     startActivity(intent)
+                                    finish()
                                 } else {
                                     Toast.makeText(this, "Database Error: ${dbTask.exception?.message}", Toast.LENGTH_SHORT).show()
+                                    dbTask.exception?.printStackTrace()
                                 }
                             }
                     }
                 } else {
                     Toast.makeText(this, "Authentication Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    task.exception?.printStackTrace()
                 }
             }
     }
-
 }

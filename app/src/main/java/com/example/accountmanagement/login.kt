@@ -1,8 +1,10 @@
 package com.example.accountmanagement
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +17,7 @@ import com.google.firebase.ktx.Firebase
 class login : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,10 +32,18 @@ class login : AppCompatActivity() {
             insets
         }
 
+        val emailEditText: EditText = findViewById(R.id.email)
+        val passwordEditText: EditText = findViewById(R.id.password)
         val loginBtn: Button = findViewById(R.id.login)
+
         loginBtn.setOnClickListener {
-            val email = "user@example.com" // Replace with EditText input
-            val password = "password123" // Replace with EditText input
+            val email = emailEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             signInWithEmailAndPassword(email, password)
         }
@@ -53,9 +64,6 @@ class login : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
-                    // If sign in fails, display a message to the user.
-                    // You can customize the error message based on task.exception
-                    // For example, task.exception?.message
                     Toast.makeText(baseContext, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
