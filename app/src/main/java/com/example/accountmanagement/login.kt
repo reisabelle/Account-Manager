@@ -32,6 +32,12 @@ class login : AppCompatActivity() {
             insets
         }
 
+         val backBtn1: ImageView = findViewById(R.id.backbtn1)
+        backBtn1.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         val emailEditText: EditText = findViewById(R.id.email)
         val passwordEditText: EditText = findViewById(R.id.password)
         val loginBtn: Button = findViewById(R.id.login)
@@ -43,15 +49,12 @@ class login : AppCompatActivity() {
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
+            } else if (email == "admin" && password == "123") {
+                val intent = Intent(this, Admin::class.java)
+                startActivity(intent)
+            } else {
+                signInWithEmailAndPassword(email, password)
             }
-
-            signInWithEmailAndPassword(email, password)
-        }
-
-        val backBtn1: ImageView = findViewById(R.id.backbtn1)
-        backBtn1.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
         }
     }
 
