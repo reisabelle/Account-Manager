@@ -47,10 +47,14 @@ dependencies {
     implementation ("com.google.firebase:firebase-analytics-ktx")
     implementation ("com.google.firebase:firebase-auth-ktx")
     implementation ("com.google.firebase:firebase-database-ktx")
+    implementation ("com.google.firebase:firebase-database:21.0.0")
+    implementation ("com.google.firebase:firebase-auth:23.0.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     // image picker
     implementation ("com.github.dhaval2404:imagepicker:2.1")
+    // circular image
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
 }
 
