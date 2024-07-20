@@ -8,6 +8,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.AccountManagement"
         tools:targetApi="31">
@@ -22,9 +23,6 @@
             android:exported="false" />
         <activity
             android:name=".accInfo"
-            android:exported="false" />
-        <activity
-            android:name=".viewpanel"
             android:exported="false" />
         <activity
             android:name=".Admin"
